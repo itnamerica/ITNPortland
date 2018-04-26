@@ -24,10 +24,12 @@
           <div class="newsletter-title"><h3>Newsletters</h3></div>
           <img ng-src="{{assetsPath}}/images/icons/news-noword.png" alt="press icon"/>
           <ul>
-            <li class="wow fadeInUp"><a ui-sref="newsletters({anchor: 'march17'})">Newsletter March 2017</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".1s"><a ui-sref="newsletters({anchor: 'newsletter-dec16'})">Newsletter December 2016</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".2s"><a ui-sref="newsletters({anchor: 'july16'})">Newsletter July 2016</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".3s"><a ui-sref="newsletters({anchor: 'newsletter-nov15'})">Newsletter November 2015</a></li>
+            <li class="wow fadeInUp"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletters/Fall10Newsletter.pdf')">Fall 2010</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".1s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletters/Summer09newsletter.pdf')">Summer 2009</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".2s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletters/January09newsletter.pdf')">Winter 2009</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".3s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletters/October08Newsletter.pdf')">Fall 2008</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".4s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletters/July08Newsletter.pdf')">Summer 2008</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".5s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletters/Newsletter2007Fall.pdf')">Fall 2007</a></li>
           </ul>
         </div><!--newsletter-content-->
         
