@@ -1778,6 +1778,7 @@ h2,h3 {line-height:1.7}
 
 @media (max-width: 1210px) {
   .carousel-inner .item, .carousel-inner .item img {height:400px;}
+  .storybook-item .carousel-statement {margin-top:-450px !important}
   .family #gift-cert-img1, .family #gift-cert-img2 {visibility:hidden;}
 }
 
@@ -1793,6 +1794,7 @@ h2,h3 {line-height:1.7}
   }
   .navbar-collapse {margin-top:0;}
   .carousel-inner .item .carousel-statement {font-size:30px;}
+  .storybook-item .carousel-statement {font-size:20px !important}
   .homepage .progress {height: 500px;}
 }
 
