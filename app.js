@@ -10,7 +10,7 @@ app.use(express.json()); //convert req to json
 app.use(express.static(__dirname + '/app'));
 
 
-var allPages = ['/home','/what-we-do','/organization','/faces','/faq','/news','/contact','/become-member','/member-app','/volunteer-to-drive','/volunteer-app','/family','/member-programs','/pay-online','/donate','/corporate'];
+var allPages = ['/home','/what-we-do','/organization','/faces-of-our-members','/faq','/news','/contact','/become-member','/member-app','/volunteer-to-drive','/volunteer-app','/family-involvement','/member-programs','/pay-online','/donate','/corporate'];
 
 app.use(allPages, function(req, res){
   res.sendFile(__dirname + '/app/index.html');
