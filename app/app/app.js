@@ -136,6 +136,10 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
         url: '/brochures',
         templateUrl: viewsPath + 'brochures.html'
       })
+      .state('fineridesfinearts', {
+        url: '/fineridesfinearts',
+        templateUrl: viewsPath + 'fineridesfinearts.html'
+      })
 
   // default fall back route
   $urlRouterProvider.otherwise('/');
