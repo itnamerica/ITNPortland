@@ -1480,6 +1480,24 @@ form textarea.form-control {font-size:25px}
 
 
 
+.fine-rides #first-hero-fine {
+  background-image: url('../images/dark/finerideslogo.png') !important;
+  background-attachment: fixed;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 400px !important;
+}
+
+.fine-rides #first-hero-fine h1{
+  color:white !important;
+  text-shadow: 2px 2px #529ba8;
+  margin-top:170px !important;
+  margin-left: 5% !important;
+}
+
+
+
     
 #footer {
     width:100%;
