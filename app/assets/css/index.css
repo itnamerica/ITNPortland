@@ -1484,8 +1484,8 @@ form textarea.form-control {font-size:25px}
   background-image: url('../images/dark/finerideslogo.png') !important;
   background-attachment: fixed;
   background-position: center center !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
+  /* background-size: cover !important;
+  background-repeat: no-repeat !important; */
   height: 400px !important;
 }
 
