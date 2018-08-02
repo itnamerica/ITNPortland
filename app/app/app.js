@@ -791,7 +791,11 @@ $scope.checkRequiredFields = function(formType){
         $(document).ready(function(){
           $('#pdfVersion').css('display', 'block');
         })
-        $scope.formSubject = 'ITNPortland - New ' + formType + ' application received';
+        if ($scope.formData && $scope.formData.fineArtsOrITN === 'Fine Rides for Fine Arts'){
+          $scope.formSubject = 'Fine Rides for Fine Arts - New ' + formType + ' application received';
+        } else {
+          $scope.formSubject = 'ITNPortland - New ' + formType + ' application received';
+        }
         $scope.generateMultiPagePDF();
       } else if (formType === 'nonrider') {
           $scope.formSubject = 'ITNPortland - Non-Rider application Form submitted';
