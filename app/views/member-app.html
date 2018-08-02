@@ -65,7 +65,7 @@
                         <em><small>To learn more about the Fine Rides for Fine Arts program, <a ui-sref="fineridesfinearts">please visit this page.</a></small></em>
                       </div>
                       
-                      <div ng-show="showFineInput">
+                      <div ng-if="showFineInput">
                         <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.portlandStageOrSymphony.$invalid && !itnForm.portlandStageOrSymphony.$pristine }">
                           <label for="Portland Stage Company or Portland Symphony Orchestra">Are you coming from the <em>Portland Stage Company</em> or the <em>Portland Symphony Orchestra</em>?</label><br>
                           <label class="radio-inline"><input type="radio" name="portlandStageOrSymphony"  value="portland stage company" ng-model="formData.portlandStageOrSymphony"><em>Portland Stage Company</em></label>
@@ -1115,10 +1115,10 @@
     
     <h3 class="app-title">Application for Transportation Service</h3>
     
-    <br><label for="rider name">Standard ITN<em>America</em> or <em>Fine Rides for Fine Arts</em>? <span style="color:red">*</span></label><br>
+    <br><label for="itn or fine rides for fine arts">ITNAmerica or Fine Rides for Fine Arts application? <span style="color:red">*</span></label><br>
     {{formData.fineArtsOrITN}}
-    <div ng-show="showFineInput">
-      <br><label for="rider name">Are you coming from the Portland Stage Company or the Portland Symphony Orchestra?</label><br>
+    <div ng-ifshow="showFineInput">
+      <br><label for="portland stage or portland symphony">Are you coming from the Portland Stage Company or the Portland Symphony Orchestra?</label><br>
       {{formData.portlandStageOrSymphony}}
     </div>
     

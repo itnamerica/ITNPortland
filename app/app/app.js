@@ -567,6 +567,7 @@ $scope.checkRequiredFields = function(formType){
   var requiredFieldsArray;
   if (formType === 'volunteer'){
     requiredFieldsArray = {
+      'Applying for ITNAmerica or Fine Rides for Fine Arts?': $scope.formData.fineArtsOrITN ,
       'Volunteer Name': $scope.formData.riderName , 
       'Gender': $scope.formData.riderGender , 
       'Street': $scope.formData.streetAddress,
@@ -637,6 +638,7 @@ $scope.checkRequiredFields = function(formType){
     }
   } else if (formType === 'membership'){
     requiredFieldsArray = {
+      'Applying for ITNAmerica or Fine Rides for Fine Arts?': $scope.formData.fineArtsOrITN ,
       'Rider Name': $scope.formData.riderName , 
       'Membership Type': $scope.formData.membership , 
       'Street': $scope.formData.streetAddress,
