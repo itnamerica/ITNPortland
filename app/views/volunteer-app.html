@@ -118,7 +118,7 @@
                         <label for="ITN or Fine Arts programs">Are you requesting to volunteer for the standard ITN<em>America</em> program, or the <em>Fine Rides for Fine Arts</em> program? <span style="color:red">*</span></label><br>
                         <label class="radio-inline"><input type="radio" name="fineArtsOrITN"  value="ITN" ng-model="formData.fineArtsOrITN" ng-change="showFineInput = false">Standard ITN<em>America</em></label>
                         <label class="radio-inline"><input type="radio" name="fineArtsOrITN" value="Fine Rides for Fine Arts" ng-model="formData.fineArtsOrITN" ng-change="showFineInput = true" required><em>Fine Rides for Fine Arts</em></label>
-                        <span ng-if="itnForm.fineArtsOrITN.$error.required && !itnForm.fineArtsOrITN.$pristine" class="help-block">{{errorMessages.required}}</span
+                        <span ng-if="itnForm.fineArtsOrITN.$error.required && !itnForm.fineArtsOrITN.$pristine" class="help-block">{{errorMessages.required}}</span>
                       </div>
                       <div class="ta-center mt-25">
                         <em><small>To learn more about the Fine Rides for Fine Arts program, <a ui-sref="fineridesfinearts">please visit this page.</a></small></em>
