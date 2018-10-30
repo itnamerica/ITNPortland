@@ -54,6 +54,24 @@
 
                       <button type="button" ng-click="nextTabMemberApp()" ng-disabled="itnForm.membership.$invalid || itnForm.riderName.$invalid || itnForm.street.$invalid || itnForm.city.$invalid || itnForm.state.$invalid || itnForm.zip.$invalid || itnForm.years.$invalid || itnForm.isMailingAddress.$invalid || itnForm.isBillingAddress.$invalid || itnForm.isYearRoundResidence.$invalid ||itnForm.primaryPhone.$invalid ||  itnForm.fineArtsOrITN.$invalid" class="next-tab btn btn-lg  btn-primary pull-right itn-green-bg"  style="margin-left:2%;margin-top:-50px">Next</button>
 
+                      <div class="form-group ta-center mt-25" ng-class="{ 'has-error' : itnForm.fineArtsOrITN.$invalid && !itnForm.fineArtsOrITN.$pristine }">
+                        <label for="ITN or Fine Arts programs">Are you requesting to volunteer for the standard ITN<em>America</em> program, or the <em>Fine Rides for Fine Arts</em> program? <span style="color:red">*</span></label><br>
+                        <label class="radio-inline"><input type="radio" name="fineArtsOrITN"  value="ITN" ng-model="formData.fineArtsOrITN" ng-change="showFineInput = false">Standard ITN<em>America</em></label>
+                        <label class="radio-inline"><input type="radio" name="fineArtsOrITN" value="Fine Rides for Fine Arts" ng-model="formData.fineArtsOrITN" ng-change="showFineInput = true" required><em>Fine Rides for Fine Arts</em></label>
+                        <span ng-if="itnForm.fineArtsOrITN.$error.required && !itnForm.fineArtsOrITN.$pristine" class="help-block">{{errorMessages.required}}</span>
+                      </div>
+                      <div class="ta-center mt-25">
+                        <em><small>To learn more about the Fine Rides for Fine Arts program, <a ui-sref="fineridesfinearts">please visit this page.</a></small></em>
+                      </div>
+
+                      <div ng-if="showFineInput">
+                        <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.portlandStageOrSymphony.$invalid && !itnForm.portlandStageOrSymphony.$pristine }">
+                          <label for="Portland Stage Company or Portland Symphony Orchestra">Are you coming from the <em>Portland Stage Company</em> or the <em>Portland Symphony Orchestra</em>?</label><br>
+                          <label class="radio-inline"><input type="radio" name="portlandStageOrSymphony"  value="portland stage company" ng-model="formData.portlandStageOrSymphony"><em>Portland Stage Company</em></label>
+                          <label class="radio-inline"><input type="radio" name="portlandStageOrSymphony" value="portland symphony orchestra" ng-model="formData.portlandStageOrSymphony" required><em>Portland Symphony Orchestra</em></label>
+                          <span ng-if="itnForm.portlandStageOrSymphony.$error.required && !itnForm.portlandStageOrSymphony.$pristine" class="help-block">{{errorMessages.required}}</span>
+                        </div>
+                      </div>
 
                         <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.membership.$invalid }">
                           <label for="Membership Type">Membership Type: <span style="color:red">*</span></label><br>
@@ -1106,7 +1124,10 @@
 
   <div id="pdfVersion">
 
-    <h3 class="app-title">Application for Transportation Service</h3>
+    <h3 class="app-title">Application for Transportation Service</h3><br><label for="itn or fine rides for fine arts">ITNAmerica or Fine Rides for Fine Arts application? <span style="color:red">*</span></label><br>
+    {{formData.fineArtsOrITN}}
+    <br><label for="portland stage or portland symphony">If Fine Rides, Are you coming from the Portland Stage Company or the Portland Symphony Orchestra?</label><br>
+    {{formData.portlandStageOrSymphony}}
 
     <br><label for="Membership Type">Membership Type: <span style="color:red">*</span></label><br>
     {{formData.membership}}
