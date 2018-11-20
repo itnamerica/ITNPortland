@@ -21,50 +21,50 @@ app.use(express.static(__dirname + '/app'));
 
 app.use(session({secret: "Sam is awesome"}));
 
-var allPages = ['/home','/what-we-do','/organization','/faces-of-our-members','/faq','/news','/contact','/become-member','/member-app','/volunteer-to-drive','/volunteer-app','/family-involvement','/member-programs','/pay-online','/donate','/corporate', '/non-rider-member','/dashboard','/login', '/view-form','/draft', '/brochures','/fineridesfinearts'];
+var allPages = ['/home','/what-we-do','/organization','/faces-of-our-members','/faq','/news','/contact','/become-member','/member-app','/volunteer-to-drive','/volunteer-app','/family-involvement','/member-programs','/pay-online','/donate','/corporate', '/non-rider-member','/dashboard','/login', '/view-form','/draft', '/brochures','/fineridesfinearts','/help-on-wheels'];
 
 MongoClient.connect('mongodb://itnadmin:itnUser0136!@ds153700.mlab.com:53700/itnportland', function(err, client) {
-  if (err) { 
+  if (err) {
     console.log('db not connecting, but inside mongo block', err);
   };
   db = client.db('itnportland');
-  
-  
+
+
   app.get('/getMemberApps', function (req,res) {
       db.collection('memberapp').find().toArray(function (err, result) {
         console.log('result is ', result);
         res.send(result);
       })
   }); // end of /getMemberForms get request
-  
+
   app.get('/getVolunteerApps', function (req,res) {
       db.collection('volunteerapp').find().toArray(function (err, result) {
         console.log('result is ', result);
         res.send(result);
       })
   }); // end of /getVolunteerForms get request
-  
+
   app.get('/getNonRiderApps', function (req,res) {
       db.collection('nonriderapp').find().toArray(function (err, result) {
         console.log('result is ', result);
         res.send(result);
       })
   }); // end of /getNonRiderForms get request
-  
+
   app.get('/getContactForms', function (req,res) {
       db.collection('contactform').find().toArray(function (err, result) {
         console.log('result is ', result);
         res.send(result);
       })
   }); // end of /getContactForms get request
-  
+
   app.get('/getNewsletterForms', function (req,res) {
       db.collection('newsletterform').find().toArray(function (err, result) {
         console.log('result is ', result);
         res.send(result);
       })
   }); // end of /getNewsletterForms get request
-  
+
   app.get('/getAdmin', function (req,res) {
       db.collection('users').find().toArray(function (err, result) {
         var userInput = JSON.parse(req.query.formData);
@@ -76,10 +76,10 @@ MongoClient.connect('mongodb://itnadmin:itnUser0136!@ds153700.mlab.com:53700/itn
         }
         else {
           res.status(500).send('error')
-        }  
+        }
       })
   }); // end of /getAdmin get request
-  
+
   app.delete('/deleteForm/:formId', function (req,res) {
     console.log('req param', req.params.formId, 'req query', req.query.formType);
       var tableName = req.query.formType;
@@ -89,7 +89,7 @@ MongoClient.connect('mongodb://itnadmin:itnUser0136!@ds153700.mlab.com:53700/itn
         res.send(result);
       });
   }); // end of delete request
-  
+
 });//end of mongoclient
 
 
@@ -99,7 +99,7 @@ MongoClient.connect('mongodb://itnadmin:itnUser0136!@ds153700.mlab.com:53700/itn
 app.get('/getAllRides', function (req,res) {
 
 MongoClient.connect('mongodb://itnadmin:itnUser0136!@ds119442.mlab.com:19442/itnamerica-new', function(err, client) {
-  if (err) { 
+  if (err) {
     console.log('db itnamerica not connecting, but inside mongo block:', err);
   };
   db2 = client.db('itnamerica-new');
@@ -124,14 +124,14 @@ app.post('/sendmail', function(req, res){
        }
     })
   )
-  
+
   let mailOptions = {};
   if (req.body && req.body.pdf){
     console.log('sending email with pdf, membership, volunteer or non-rider forms');
     mailOptions = {
         from: req.body.from, // sender address
         to: req.body.to, // list of receivers
-        subject: req.body.subject, // Subject line   
+        subject: req.body.subject, // Subject line
         // text: JSON.stringify(req.body.text), // plain text body
         attachments: [{path: req.body.pdf}],
         bcc: 'info@itnportland.org'
@@ -142,7 +142,7 @@ app.post('/sendmail', function(req, res){
     mailOptions = {
         from: req.body.from, // sender address
         to: req.body.to, // list of receivers
-        subject: req.body.subject, // Subject line   
+        subject: req.body.subject, // Subject line
         text: JSON.stringify(req.body.text), // plain text body
         html: req.body.html, // html body
         bcc: 'info@itnportland.org'
@@ -152,7 +152,7 @@ app.post('/sendmail', function(req, res){
     mailOptions = {
         from: req.body.from, // sender address
         to: req.body.to, // list of receivers
-        subject: req.body.subject, // Subject line   
+        subject: req.body.subject, // Subject line
         text: JSON.stringify(req.body.text), // plain text body
         bcc: 'info@itnportland.org'
     };
@@ -166,14 +166,14 @@ app.post('/sendmail', function(req, res){
         console.log('Message sent: %s', info.messageId);
         transporter.close();
     });
-    
+
     MongoClient.connect('mongodb://itnadmin:itnUser0136!@ds153700.mlab.com:53700/itnportland', function(err, client) {
-      if (err) { 
+      if (err) {
         console.log('db not connecting, but inside mongo block', err);
       };
       db = client.db('itnportland');
 
-      
+
       var objWithPDF; var pdfVal;
       if ((req.body && req.body.pdf) && (req.body.formType === 'membership')) {
         objWithPDF = req.body.text;
@@ -217,23 +217,22 @@ app.post('/sendmail', function(req, res){
           // res.redirect('/');
         })
       }
-    
+
     });//end of mongoclient
     console.log('after mongo block');
     res.end();
   }); // end /sendmail post request
-  
-  
 
 
 
 
-  
+
+
+
   app.use(allPages, function(req, res){
     res.sendFile(__dirname + '/app/index.html');
   });
 
-  
+
 
 app.listen(process.env.PORT || 13270);
-
